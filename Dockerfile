@@ -18,4 +18,4 @@ RUN ls /usr/src/toaster-site
 
 RUN pwd
 
-RUN firebase.bash
+ENTRYPOINT [ "/usr/src/toaster-site/firebase.bash" ]
