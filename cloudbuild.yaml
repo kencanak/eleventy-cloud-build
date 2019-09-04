@@ -1,7 +1,7 @@
 
 steps:
 - name: gcr.io/cloud-builders/docker
-  args: ['build', '-t', 'gcr.io/toaster-website-beta/github.com/kencanak/eleventy-cloud-build', '.']
+  args: ['build', '--build-arg', FIREBASE_TOKEN, '-t', 'gcr.io/toaster-website-beta/github.com/kencanak/eleventy-cloud-build', '.']
   secretEnv: ['FIREBASE_TOKEN']
 secrets:
 - kmsKeyName: projects/toaster-website-beta/locations/global/keyRings/test-cloud-build/cryptoKeys/firebase-eleventy-cloud-build
