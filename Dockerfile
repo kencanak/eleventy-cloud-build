@@ -1,6 +1,8 @@
 FROM node:10-alpine
 RUN npm install -g @11ty/eleventy
 
+ARG FIREBASE_TOKEN
+
 RUN npm i -g firebase-tools
 
 WORKDIR /usr/src/toaster-site
