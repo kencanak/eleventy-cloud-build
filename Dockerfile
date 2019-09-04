@@ -18,4 +18,4 @@ RUN chmod +x /usr/bin/firebase.sh
 
 # RUN pwd
 
-ENTRYPOINT [ "/usr/bin/firebase.sh" ]
+CMD [ "/usr/bin/firebase.sh" ]
