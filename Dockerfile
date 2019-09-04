@@ -5,13 +5,14 @@ RUN npm i -g firebase-tools
 
 WORKDIR /usr/src/toaster-site
 
+ADD firebase.sh /usr/bin
+RUN chmod +x /usr/bin/firebase.sh
+
 COPY ./pages /usr/src/toaster-site
 COPY ./firebase.json /usr/src/toaster-site
 COPY ./.firebaserc /usr/src/toaster-site
 
 RUN eleventy
 
-RUN firebase login
-
-RUN firebase deploy
+RUN /usr/bin/firebase.sh
 
