@@ -1,22 +1,15 @@
 FROM node:10-alpine
-# # RUN npm install -g @11ty/eleventy
+RUN npm install -g @11ty/eleventy
 
-# # RUN npm i -g firebase-tools
+RUN npm i -g firebase-tools
 
-# # WORKDIR /usr/src/toaster-site
+WORKDIR /usr/src/toaster-site
 
-ADD firebase.sh /usr/bin
-RUN chmod +x /usr/bin/firebase.sh
+COPY ./pages /usr/src/toaster-site
+COPY ./firebase.json /usr/src/toaster-site
+COPY ./.firebaserc /usr/src/toaster-site
 
-# # COPY ./pages /usr/src/toaster-site
-# # COPY ./firebase.json /usr/src/toaster-site
-# # COPY ./.firebaserc /usr/src/toaster-site
+RUN eleventy
 
-# # RUN eleventy
-
-# RUN ls /usr/bin | grep 'firebase.sh'
-
-# # RUN pwd
-
-CMD [ "/usr/bin/firebase.sh" ]
+RUN firebase deploy
 

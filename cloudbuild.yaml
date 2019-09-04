@@ -1,3 +1,0 @@
-steps:
-- name: gcr.io/cloud-builders/docker
-  args: ['run', 'gcr.io/toaster-website-beta/github.com/kencanak/eleventy-cloud-build']
