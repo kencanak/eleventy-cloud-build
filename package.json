@@ -1,0 +1,26 @@
+{
+  "name": "eleventy-cloud-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:clean": "rm -rf _site && rm -rf firebase-build/public",
+		"build:copy": "cp -R -f _site firebase-build/public",
+		"build": "npm run build:clean && npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kencanak/eleventy-cloud-build.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kencanak/eleventy-cloud-build/issues"
+  },
+  "homepage": "https://github.com/kencanak/eleventy-cloud-build#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.9.0"
+  }
+}

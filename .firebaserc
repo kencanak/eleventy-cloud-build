@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "static": "eleventy-cloud-build"
+  }
+}
