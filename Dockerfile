@@ -5,8 +5,8 @@ RUN npm i -g firebase-tools
 
 WORKDIR /usr/src/toaster-site
 
-ADD firebase.bash /usr/src/toaster-site
-RUN chmod +x /usr/src/toaster-site/firebase.bash
+ADD firebase.sh /usr/src/toaster-site
+RUN chmod +x /usr/src/toaster-site/firebase.sh
 
 COPY ./pages /usr/src/toaster-site
 COPY ./firebase.json /usr/src/toaster-site
@@ -18,4 +18,4 @@ RUN ls /usr/src/toaster-site
 
 RUN pwd
 
-ENTRYPOINT [ "/usr/src/toaster-site/firebase.bash" ]
+ENTRYPOINT [ "/usr/src/toaster-site/firebase.sh" ]
