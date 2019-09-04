@@ -14,5 +14,5 @@ COPY ./.firebaserc /usr/src/toaster-site
 
 RUN eleventy
 
-RUN /usr/bin/firebase.sh
+RUN firebase deploy --only hosting --token=$FIREBASE_TOKEN
 
