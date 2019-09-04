@@ -14,4 +14,4 @@ COPY ./.firebaserc /usr/src/toaster-site
 
 RUN eleventy
 
-RUN /usr/bin/firebase.bash
+CMD ['/usr/bin/firebase.bash']
