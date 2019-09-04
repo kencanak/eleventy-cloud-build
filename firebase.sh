@@ -1,3 +1,3 @@
 #!/bin/bash
 
-firebase deploy --only hosting
+echo "Hello, world! The time is $(date)."
