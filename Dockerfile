@@ -18,4 +18,4 @@ RUN ls /usr/src/toaster-site
 
 RUN pwd
 
-RUN ./firebase.bash
+RUN firebase.bash
