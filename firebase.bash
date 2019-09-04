@@ -2,7 +2,8 @@
 
 # run the original firebase
 if [ $FIREBASE_TOKEN ]; then
-  firebase "$@" --token $FIREBASE_TOKEN
+  firebase deploy --only hosting --token $FIREBASE_TOKEN
 else
-  firebase "$@"
+	echo "Hello, world! The time is $(date)."
+  firebase deploy --only hosting
 fi

@@ -14,4 +14,4 @@ COPY ./.firebaserc /usr/src/toaster-site
 
 RUN eleventy
 
-CMD [ "/usr/bin/firebase.bash deploy --only hosting" ]
+RUN /usr/bin/firebase.bash
