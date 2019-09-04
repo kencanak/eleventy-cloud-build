@@ -16,4 +16,4 @@ RUN eleventy
 
 RUN ls /usr/src/toaster-site
 
-RUN /usr/src/toaster-site/firebase.bash
+RUN ./firebase.bash
