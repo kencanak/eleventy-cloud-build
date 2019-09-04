@@ -11,5 +11,7 @@ COPY ./.firebaserc /usr/src/toaster-site
 
 RUN eleventy
 
+RUN firebase login
+
 RUN firebase deploy
 
