@@ -11,4 +11,4 @@ COPY ./.firebaserc /usr/src/toaster-site
 
 RUN eleventy
 
-RUN firebase deploy --only hosting --project $PROJECT_ID
+RUN firebase deploy --only hosting
