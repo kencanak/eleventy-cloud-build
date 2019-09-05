@@ -62,7 +62,10 @@ NOTE: Please make sure that you are login in to the correct gcloud project befor
 				secretEnv:
 					FIREBASE_TOKEN: [the base64 encrypted keys you copied]
 
+2. 
+
 ## References
 1. https://cloud.google.com/cloud-build/docs/build-debug-locally
 2. https://cloud.google.com/cloud-build/docs/securing-builds/use-encrypted-secrets-credentials
 3. https://docs.docker.com/docker-for-mac/install/
+4. should we need to access github private repo: https://cloud.google.com/cloud-build/docs/access-private-github-repos

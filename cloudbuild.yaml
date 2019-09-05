@@ -1,8 +1,19 @@
 
 steps:
+# build docker image on trigger
 - name: gcr.io/cloud-builders/docker
-  args: ['build', '--build-arg', FIREBASE_TOKEN, '-t', 'gcr.io/toaster-website-beta/github.com/kencanak/eleventy-cloud-build', '.']
+  args: ['build', '--build-arg', FIREBASE_TOKEN, '-t', 'gcr.io/$PROJECT_ID/eleventy-cloud-build', '.']
   secretEnv: ['FIREBASE_TOKEN']
+
+# push to image registry, so that we can run the latest docker image
+# when creating build
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/eleventy-cloud-build']
+
+# we assume that on code change we want to rebuild the static page
+- name: 'gcr.io/$PROJECT_ID/eleventy-cloud-build'
+  args: []
+
 secrets:
 - kmsKeyName: projects/toaster-website-beta/locations/global/keyRings/test-cloud-build/cryptoKeys/firebase-eleventy-cloud-build
   secretEnv:

@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+echo "Running static build"
 
-curl https://api-dot-toaster-website.appspot.com/api/articles
+npm run build
 
-echo $FIREBASE_TOKEN
+firebase deploy --token $FIREBASE_TOKEN
