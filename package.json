@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build:clean": "rm -rf _site && rm -rf firebase-build/public",
-		"build:copy": "cp -R -f _site firebase-build/public",
+		"build:clean": "rm -rf _site",
 		"build": "npm run build:clean && npx @11ty/eleventy"
   },
   "repository": {

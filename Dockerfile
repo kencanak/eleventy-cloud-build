@@ -1,5 +1,4 @@
 FROM node:10-alpine
-RUN npm install -g @11ty/eleventy
 
 ARG FIREBASE_TOKEN
 
@@ -7,11 +6,15 @@ RUN npm i -g firebase-tools
 
 WORKDIR /usr/src/toaster-site
 
-COPY ./pages /usr/src/toaster-site
-COPY ./firebase.json /usr/src/toaster-site
-COPY ./.firebaserc /usr/src/toaster-site
+COPY . /usr/src/toaster-site
 
-RUN eleventy
+RUN npm install
 
-RUN firebase deploy --only hosting --token=${FIREBASE_TOKEN}
+RUN npm run build
+
+RUN chmod +x /usr/src/toaster-site/firebase-deploy.sh
+
+ENTRYPOINT [ "/usr/src/toaster-site/firebase-deploy.sh" ]
+
+# CMD firebase deploy --only hosting --token=${FIREBASE_TOKEN}
 
