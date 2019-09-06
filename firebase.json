@@ -6,10 +6,33 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "headers": [
+			{
+        "source": "/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source" : "**/*.@(jpg|jpeg|gif|png|svg)",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "no-cache"
+          }
+        ]
+      },
+      {
+        "source" : "**/*.@(js|css)",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "no-cache"
+          }
+        ]
       }
     ]
   }
