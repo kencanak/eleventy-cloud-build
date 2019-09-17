@@ -6,7 +6,7 @@ const functions = require('firebase-functions');
 exports.helloWorld = functions.https.onRequest((request, response) => {
 	console.log(request.body);
 	const event_type = request.headers["X-GitHub-Event"];
-	const payload = JSON.parse(request.body);
+	const payload = JSON.parse(request.body.payload);
 
 	console.log(`EVENT TYPE: ${event_type}`);
 	console.log(payload);
