@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+const crypto = require('crypto');
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -14,6 +15,14 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 	if (event_type === 'pull_request') {
 		console.log(`EVENT TYPE: ${event_type}`);
 		console.log(payload);
+
+		const digest = crypto
+			.createHmac('sha1', functions.config().githubwebhook.secret)
+			.update(request.rawBody)
+			.digest('hex');
+
+		console.log('DIGEST');
+		console.log(digest);
 
 		console.log('RAW BODY:');
 		console.log(request.rawBody);
