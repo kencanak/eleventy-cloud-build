@@ -25,6 +25,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 	console.log(request.headers);
 
 	if (isValidRequest(request)) {
+		console.log('request is valid');
 		console.log(`EVENT TYPE: ${event_type}`);
 		console.log(payload);
 
