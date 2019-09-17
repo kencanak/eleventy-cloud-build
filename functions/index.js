@@ -5,12 +5,13 @@ const functions = require('firebase-functions');
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
 	console.log(request.body);
-	const event_type = request.headers['x-gitHub-event'];
+	const event_type = request.headers['x-github-event'];
 	const payload = JSON.parse(request.body.payload);
 
+	console.log('HEADERS');
+	console.log(request.headers);
+
 	if (event_type === 'pull_request') {
-		console.log('HEADERS');
-		console.log(request.headers);
 		console.log(`EVENT TYPE: ${event_type}`);
 		console.log(payload);
 
