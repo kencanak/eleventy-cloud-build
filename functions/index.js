@@ -8,6 +8,8 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 	const event_type = request.headers["X-GitHub-Event"];
 	const payload = JSON.parse(request.body.payload);
 
+	console.log('HEADERS');
+	console.log(request.headers);
 	console.log(`EVENT TYPE: ${event_type}`);
 	console.log(payload);
  	response.send("Hello from Firebase!");
