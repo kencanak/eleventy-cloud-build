@@ -3,7 +3,7 @@ const crypto = require('crypto');
 
 const isValidRequest = (request) => {
 	const event_type = request.headers['x-github-event'];
-	const request_signature = req.headers['x-hub-signature'];
+	const request_signature = request.headers['x-hub-signature'];
 
 	const digest = crypto
 			.createHmac('sha1', functions.config().githubwebhook.secret)
