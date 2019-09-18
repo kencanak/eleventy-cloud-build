@@ -7,7 +7,7 @@
       "**/node_modules/**"
     ],
     "headers": [
-			{
+      {
         "source": "/**",
         "headers": [
           {
@@ -17,23 +17,28 @@
         ]
       },
       {
-        "source" : "**/*.@(jpg|jpeg|gif|png|svg)",
-        "headers" : [
+        "source": "**/*.@(jpg|jpeg|gif|png|svg)",
+        "headers": [
           {
-            "key" : "Cache-Control",
-            "value" : "no-cache"
+            "key": "Cache-Control",
+            "value": "no-cache"
           }
         ]
       },
       {
-        "source" : "**/*.@(js|css)",
-        "headers" : [
+        "source": "**/*.@(js|css)",
+        "headers": [
           {
-            "key" : "Cache-Control",
-            "value" : "no-cache"
+            "key": "Cache-Control",
+            "value": "no-cache"
           }
         ]
       }
+    ]
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
     ]
   }
 }

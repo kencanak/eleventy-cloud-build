@@ -1,5 +1,6 @@
 {
   "projects": {
-    "static": "eleventy-cloud-build"
+    "static": "eleventy-cloud-build",
+    "default": "eleventy-cloud-build"
   }
 }
