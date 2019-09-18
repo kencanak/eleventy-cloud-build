@@ -29,8 +29,8 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 		console.log('request is valid');
 		console.log(payload);
 
-		console.log('RAW BODY:');
-		console.log(request.rawBody);
+		console.log('pull request details');
+		console.log(request.body.check_suite.pull_requests);
 
 
 		// github token to post comment and update the pull request
