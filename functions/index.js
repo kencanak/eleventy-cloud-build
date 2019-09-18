@@ -10,7 +10,7 @@ const isValidRequest = (request) => {
 			.update(request.rawBody)
 			.digest('hex');
 
-	return event_type === 'pull_request' && request_signature === `sha1=${digest}`;
+	return event_type === 'check_suite' && request_signature === `sha1=${digest}`;
 };
 
 // // Create and Deploy Your First Cloud Functions
@@ -23,7 +23,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 	console.log('HEADERS');
 	console.log(request.headers);
-
 	console.log(`EVENT TYPE: ${event_type}`);
 
 	if (isValidRequest(request)) {
