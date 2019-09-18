@@ -24,13 +24,20 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 	console.log('HEADERS');
 	console.log(request.headers);
 
+	console.log(`EVENT TYPE: ${event_type}`);
+
 	if (isValidRequest(request)) {
 		console.log('request is valid');
-		console.log(`EVENT TYPE: ${event_type}`);
 		console.log(payload);
 
 		console.log('RAW BODY:');
 		console.log(request.rawBody);
+
+
+
+		// github token to post comment and update the pull request
+		// regardless whether or not it's a github app or just pure webhook
+
 		response.send("Hello from Firebase!");
 	} else {
 		response.status(403).send('forbidden request');
