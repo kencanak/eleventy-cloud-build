@@ -34,7 +34,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 		console.log(request.rawBody);
 
 
-
 		// github token to post comment and update the pull request
 		// regardless whether or not it's a github app or just pure webhook
 
