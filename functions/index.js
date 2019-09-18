@@ -19,7 +19,7 @@ const isValidRequest = (request) => {
 exports.helloWorld = functions.https.onRequest((request, response) => {
 	console.log(request.body);
 	const event_type = request.headers['x-github-event'];
-	const payload = JSON.parse(request.body.payload);
+	const payload = request.body.payload ? JSON.parse(request.body.payload) : null;
 
 	console.log('HEADERS');
 	console.log(request.headers);
