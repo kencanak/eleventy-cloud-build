@@ -24,6 +24,8 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 	console.log('HEADERS');
 	console.log(request.headers);
 
+	console.log('meow');
+
 	console.log(`EVENT TYPE: ${event_type}`);
 
 	if (isValidRequest(request)) {
