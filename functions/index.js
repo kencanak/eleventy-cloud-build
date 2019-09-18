@@ -10,7 +10,9 @@ const isValidRequest = (request) => {
 			.update(request.rawBody)
 			.digest('hex');
 
-	return event_type === 'check_suite' && request_signature === `sha1=${digest}`;
+	const allowedEvents = ['check_suite', 'pull_request'];
+
+	return allowedEvents.indexOf(event_type) > -1 && request_signature === `sha1=${digest}`;
 };
 
 // // Create and Deploy Your First Cloud Functions
@@ -31,6 +33,8 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 		console.log('pull request details');
 		console.log(request.body.check_suite.pull_requests);
+
+		console.log(`access token: ${request.headers['x-access-token']}`);
 
 
 		// github token to post comment and update the pull request
